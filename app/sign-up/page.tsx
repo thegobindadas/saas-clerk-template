@@ -75,6 +75,7 @@ function Signup() {
                 return;
             }
 
+            setError("This feature is not available yet");
             
         } catch (err: any) {
             console.error(JSON.stringify(err, null, 2));
@@ -121,7 +122,7 @@ function Signup() {
     }
 
     const handleResendCode = async () => {
-
+        setError("This feature is not available yet");
     }
 
 

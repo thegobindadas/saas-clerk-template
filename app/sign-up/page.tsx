@@ -43,14 +43,14 @@ function Signup() {
             }
 
             
-            const signUP = await signUp?.create({
+            const clerkSignup = await signUp?.create({
                 emailAddress,
                 password
             })
-            console.log("Clerk SignUp: ", signUP)
+            console.log("Clerk SignUp: ", clerkSignup)
 
 
-            const sendOtp = await signUP.prepareEmailAddressVerification({
+            const sendOtp = await signUp.prepareEmailAddressVerification({
                 strategy: "email_code"
             })
             console.log("Clerk Send Otp: ", sendOtp)    
@@ -350,15 +350,15 @@ function Signup() {
                     <p className="text-gray-400">
                         {!pendingVerification ? (
                             <>
-                                Already have an account?{' '}
-                                <Link href={'/sign-in'} className="text-blue-400 hover:text-blue-300 font-semibold transition-colors hover:underline">
+                                Already have an account?{" "}
+                                <Link href={"/sign-in"} className="text-blue-400 hover:text-blue-300 font-semibold transition-colors hover:underline">
                                     Sign in here
                                 </Link>
                             </>
                             ) : (
                             <>
-                                Need help?{' '}
-                                <Link href={'/'} className="text-blue-400 hover:text-blue-300 font-semibold transition-colors hover:underline">
+                                Need help?{" "}
+                                <Link href={"/"} className="text-blue-400 hover:text-blue-300 font-semibold transition-colors hover:underline">
                                     Contact support
                                 </Link>
                             </>

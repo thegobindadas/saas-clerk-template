@@ -17,7 +17,7 @@ TodoMaster is a powerful task management application built with Next.js, featuri
 
    ```
    git clone https://github.com/thegobindadas/saas-clerk-template
-   cd role-based-auth
+   cd saas-clerk-template
    ```
 
 2. Install dependencies:
@@ -27,7 +27,7 @@ TodoMaster is a powerful task management application built with Next.js, featuri
    ```
 
 3. Set up environment variables:
-   Create a `.env.local` file in the root directory and add the following variables:
+   Create a `.env` file in the root directory and add the following variables:
 
    ```
    # Clerk
@@ -35,10 +35,10 @@ TodoMaster is a powerful task management application built with Next.js, featuri
    CLERK_SECRET_KEY=your_clerk_secret_key
 
    # Neon Database
-   DATABASE_URL=your_neon_database_url
+   DATABASE_URL="your_neon_database_url"
 
    # Webhook Secret (for Clerk)
-   WEBHOOK_SECRET=your_webhook_secret
+   CLERK_WEBHOOK_SECRET=your_webhook_secret
    ```
 
 4. Set up the database:
@@ -78,7 +78,7 @@ To set up the webhook:
 4. Set the Endpoint URL to `https://your-app-url.com/api/webhook/register` (replace with your actual URL).
 5. Under "Events", select "user.created".
 6. Save the endpoint.
-7. Copy the "Signing Secret" and add it to your `.env.local` file as `WEBHOOK_SECRET`.
+7. Copy the "Signing Secret" and add it to your `.env` file as `CLERK_WEBHOOK_SECRET`.
 
 The webhook handler is implemented in `app/api/webhook/register/route.ts`. It verifies the webhook signature and creates a new user record in the database when a user is created in Clerk.
 

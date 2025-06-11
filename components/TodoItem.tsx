@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Trash2, CheckCircle, XCircle } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
+
 interface TodoItemProps {
   todo: Todo;
   isAdmin?: boolean;
@@ -13,19 +14,25 @@ interface TodoItemProps {
   onDelete: (id: string) => void;
 }
 
+
+
 export function TodoItem({
   todo,
   isAdmin = false,
   onUpdate,
   onDelete,
 }: TodoItemProps) {
+
   const [isCompleted, setIsCompleted] = useState(todo.completed);
+
 
   const toggleComplete = async () => {
     const newCompletedState = !isCompleted;
     setIsCompleted(newCompletedState);
     onUpdate(todo.id, newCompletedState);
   };
+
+
 
   return (
     <Card>

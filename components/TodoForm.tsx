@@ -4,11 +4,15 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
+
 interface TodoFormProps {
   onSubmit: (title: string) => void;
 }
 
+
+
 export function TodoForm({ onSubmit }: TodoFormProps) {
+
   const [title, setTitle] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -19,6 +23,8 @@ export function TodoForm({ onSubmit }: TodoFormProps) {
     }
   };
 
+
+  
   return (
     <form onSubmit={handleSubmit} className="flex space-x-2 mb-4">
       <Input

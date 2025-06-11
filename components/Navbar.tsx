@@ -12,10 +12,14 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
+
 export default function Navbar() {
+
   const { user } = useUser();
   const { signOut } = useClerk();
 
+
+  
   return (
     <nav className="bg-background border-b">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

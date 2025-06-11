@@ -5,8 +5,10 @@ import * as React from "react";
 
 import type { ToastActionElement, ToastProps } from "@/components/ui/toast";
 
+
 const TOAST_LIMIT = 1;
 const TOAST_REMOVE_DELAY = 1000000;
+
 
 type ToasterToast = ToastProps & {
   id: string;
@@ -22,7 +24,9 @@ const actionTypes = {
   REMOVE_TOAST: "REMOVE_TOAST",
 } as const;
 
+
 let count = 0;
+
 
 function genId() {
   count = (count + 1) % Number.MAX_SAFE_INTEGER;
@@ -139,7 +143,9 @@ function dispatch(action: Action) {
 
 type Toast = Omit<ToasterToast, "id">;
 
+
 function toast({ ...props }: Toast) {
+
   const id = genId();
 
   const update = (props: ToasterToast) =>
@@ -148,6 +154,7 @@ function toast({ ...props }: Toast) {
       toast: { ...props, id },
     });
   const dismiss = () => dispatch({ type: "DISMISS_TOAST", toastId: id });
+
 
   dispatch({
     type: "ADD_TOAST",
@@ -161,6 +168,7 @@ function toast({ ...props }: Toast) {
     },
   });
 
+
   return {
     id: id,
     dismiss,
@@ -169,6 +177,7 @@ function toast({ ...props }: Toast) {
 }
 
 function useToast() {
+
   const [state, setState] = React.useState<State>(memoryState);
 
   React.useEffect(() => {
@@ -181,11 +190,14 @@ function useToast() {
     };
   }, [state]);
 
+
   return {
     ...state,
     toast,
     dismiss: (toastId?: string) => dispatch({ type: "DISMISS_TOAST", toastId }),
   };
 }
+
+
 
 export { useToast, toast };

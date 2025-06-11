@@ -15,7 +15,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 
 function SignIn() {
 
-    const { isLoaded, setActive, signIn } = useSignIn();
+    const { isLoaded, signIn, setActive } = useSignIn();
     const [emailAddress, setEmailAddress] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState<string | null>(null);
@@ -59,7 +59,6 @@ function SignIn() {
             setError(err.errors[0].message);
         }
     }
-
 
     const handleGoogleSignin = async (e: React.FormEvent) => {
         

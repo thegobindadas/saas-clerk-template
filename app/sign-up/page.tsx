@@ -16,7 +16,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 
 function Signup() {
 
-    const { isLoaded, setActive, signUp } = useSignUp();
+    const { isLoaded, signUp, setActive } = useSignUp();
     const [emailAddress, setEmailAddress] = useState("");
     const [password, setPassword] = useState("");
     const [pendingVerification, setPendingVerification] = useState(false);
@@ -120,6 +120,7 @@ function Signup() {
             setError(err.errors[0].message);
         }
     }
+
 
     const handleResendCode = async () => {
         setError("This feature is not available yet");
